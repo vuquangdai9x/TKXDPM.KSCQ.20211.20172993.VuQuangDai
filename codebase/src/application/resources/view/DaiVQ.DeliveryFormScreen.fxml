@@ -101,6 +101,23 @@
                   <Insets top="25.0" />
                </VBox.margin>
             </HBox>
+            <HBox maxWidth="-Infinity" prefHeight="6.0" prefWidth="720.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rush Order" wrappingWidth="150.0">
+                  	<font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </Text>
+                  <CheckBox mnemonicParsing="false" prefHeight="25.0" prefWidth="724.0" text="">
+                     <font>
+                        <Font name="Segoe UI" size="18.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </HBox>
             <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="279.0" style="-fx-background-color: #f44;" text="Confirm Delivery" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
