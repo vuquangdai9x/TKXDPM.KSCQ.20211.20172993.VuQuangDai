@@ -1,5 +1,7 @@
 package application;
 	
+import application.interbank.CreditCard;
+import application.interbank.InterbankInterface;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -22,5 +24,12 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
+		
+		InterbankInterface interbankInterface = null;
+		try {
+			interbankInterface.payOrder(new CreditCard(), "", 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }
