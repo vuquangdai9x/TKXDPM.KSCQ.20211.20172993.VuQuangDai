@@ -16,8 +16,8 @@ class ValidateAddressTest {
 	
 	@ParameterizedTest
 	@CsvSource({
-		"hanoi,true",
-		"ngo 254 Minh Khai Hai Ba Trung Ha Noi,true",
+		"laos,true",
+		"ngo 47 Ta Quang Buu Hai Ba Trung Ha Noi,true",
 		"__#$Hanoi,false",
 		",false",
 	})

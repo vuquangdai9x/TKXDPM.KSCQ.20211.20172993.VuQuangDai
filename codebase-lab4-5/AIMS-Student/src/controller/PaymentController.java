@@ -9,6 +9,8 @@ import common.exception.PaymentException;
 import common.exception.UnrecognizedException;
 import entity.cart.Cart;
 import entity.payment.CreditCard;
+import entity.payment.DomesticCreditCard;
+import entity.payment.PaymentCard;
 import entity.payment.PaymentTransaction;
 import subsystem.InterbankInterface;
 import subsystem.InterbankSubsystem;
@@ -26,7 +28,7 @@ public class PaymentController extends BaseController {
 	/**
 	 * Represent the card used for payment
 	 */
-	private CreditCard card;
+	private PaymentCard card;
 
 	/**
 	 * Represent the Interbank subsystem
@@ -83,12 +85,21 @@ public class PaymentController extends BaseController {
 	 */
 	public Map<String, String> payOrder(int amount, String contents, String cardNumber, String cardHolderName,
 			String expirationDate, String securityCode) {
+		PaymentCard card = new CreditCard(cardNumber, cardHolderName, Integer.parseInt(securityCode),
+				getExpirationDate(expirationDate));
+		return processPayOrder(amount, contents, card);
+	}
+	
+	public Map<String, String> payOrderWithDomesticCard(int amount, String contents, String issuringBank, String cardNumber, String cardholderName, String validFromDate) {
+		PaymentCard card = new DomesticCreditCard(cardNumber, issuringBank, cardholderName, validFromDate);
+		return processPayOrder(amount, contents, card);
+	}
+	
+	private Map<String, String> processPayOrder(int amount, String contents, PaymentCard card) {
 		Map<String, String> result = new Hashtable<String, String>();
 		result.put("RESULT", "PAYMENT FAILED!");
 		try {
-			this.card = new CreditCard(cardNumber, cardHolderName, Integer.parseInt(securityCode),
-					getExpirationDate(expirationDate));
-
+			this.card = card;
 			this.interbank = new InterbankSubsystem();
 			PaymentTransaction transaction = interbank.payOrder(card, amount, contents);
 

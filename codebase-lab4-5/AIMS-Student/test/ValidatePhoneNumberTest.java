@@ -18,11 +18,11 @@ class ValidatePhoneNumberTest {
 	
 	@ParameterizedTest
 	@CsvSource({
-		"0173847593,true",
-		"23524.35124,false",
-		"20172993,false",
-		"fhs383rui2,false",
-		"9328941248214,false"
+		"0123865393,true",
+		"68435.12454,false",
+		"20167995,false",
+		"fasfasf242,false",
+		"632478261494,false"
 	})
 	public void test(String phoneNumber, boolean expectedValue) {
 		assertEquals(placeOrderController.validatePhoneNumber(phoneNumber), expectedValue);

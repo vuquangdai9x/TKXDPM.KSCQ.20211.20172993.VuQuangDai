@@ -27,6 +27,10 @@ public class Media {
     protected int quantity;
     protected String type;
     protected String imageURL;
+    protected float length;
+    protected float width;
+    protected float height;
+    protected float weight;
 
     public Media() throws SQLException{
         stm = AIMSDB.getConnection().createStatement();
@@ -154,8 +158,40 @@ public class Media {
         this.type = type;
         return this;
     }
+    
+    public float getLength() {
+		return length;
+	}
 
-    @Override
+	public void setLength(float length) {
+		this.length = length;
+	}
+
+	public float getWidth() {
+		return width;
+	}
+
+	public void setWidth(float width) {
+		this.width = width;
+	}
+
+	public float getHeight() {
+		return height;
+	}
+
+	public void setHeight(float height) {
+		this.height = height;
+	}
+
+	public float getWeight() {
+		return weight;
+	}
+
+	public void setWeight(float weight) {
+		this.weight = weight;
+	}
+
+	@Override
     public String toString() {
         return "{" +
             " id='" + id + "'" +

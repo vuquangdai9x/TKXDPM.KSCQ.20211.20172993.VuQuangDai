@@ -14,6 +14,9 @@ import common.exception.InvalidDeliveryInfoException;
 import entity.invoice.Invoice;
 import entity.order.Order;
 import entity.order.OrderMedia;
+import utils.AlternativeShippingFeeCalculator;
+import utils.ShippingFeeCalculator;
+import utils.StandardShippingFeeCalculator;
 import views.screen.popup.PopupScreen;
 
 /**
@@ -110,8 +113,8 @@ public class PlaceOrderController extends BaseController{
      * @return shippingFee
      */
     public int calculateShippingFee(Order order){
-        Random rand = new Random();
-        int fees = (int)( ( (rand.nextFloat()*10)/100 ) * order.getAmount() );
+        ShippingFeeCalculator calculator = new AlternativeShippingFeeCalculator();
+        int fees = calculator.calculateShippigFee(order);
         LOGGER.info("Order Amount: " + order.getAmount() + " -- Shipping Fees: " + fees);
         return fees;
     }

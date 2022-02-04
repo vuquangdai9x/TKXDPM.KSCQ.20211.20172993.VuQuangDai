@@ -16,10 +16,10 @@ private PlaceOrderController placeOrderController;
 	
 	@ParameterizedTest
 	@CsvSource({
-		"daivq,true",
-		"Vu Quang Dai,false",
-		"daivq20172993,false",
-		"_#$dai, false",
+		"pathanaP,true",
+		"Pathana Peungnhothoung,false",
+		"peungnhothoungp167995,false",
+		"_pa$#, false",
 		",false"
 	})
 	public void test(String name, boolean expectedValue) {

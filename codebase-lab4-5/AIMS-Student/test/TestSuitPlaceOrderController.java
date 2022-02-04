@@ -4,6 +4,6 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ValidateAddressTest.class, ValidateNameTest.class, ValidatePhoneNumberTest.class})
-public class AllTestsPlaceOrderController {
+public class TestSuitPlaceOrderController {
 
 }
